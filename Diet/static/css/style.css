@@ -1,0 +1,230 @@
+/* الألوان الأساسية */
+:root {
+    --primary-color: #4CAF50; /* أخضر */
+    --secondary-color: #45a049; /* أخضر داكن */
+    --background-color: #f4f4f4;
+    --text-color: #333;
+}
+
+/* تصميم عام */
+body {
+    font-family: 'Cairo', sans-serif; /* استخدام خط Cairo */
+    margin: 0;
+    padding: 0;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    font-weight: 700; /* جعل الخط أعرض */
+}
+span {
+    opacity: 0.5; /* جعل العنصر شفافًا بنسبة 50% */
+    font-size: 12px;
+}
+/* تصميم الـ Navbar */
+.navbar {
+    background-color: var(--primary-color);
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* توزيع العناصر بين الجانبين */
+    padding: 0 20px;
+    direction: rtl; /* تغيير اتجاه النص إلى اليمين */
+}
+
+.navbar .logo img {
+    height: 50px; /* حجم الشعار */
+    width: auto;
+    margin-left: 40px; /* يجعل الشعار في أقصى اليسار */
+
+}
+
+.navbar .nav-links {
+    display: flex;
+    gap: 20px; /* مسافة بين الروابط */
+    margin-right: 20px; /* دفع الروابط أكثر لليمين */
+}
+
+.navbar a {
+    color: rgb(255, 255, 255);
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-weight: 700; /* جعل الخط أعرض */
+}
+
+.navbar a:hover {
+    background-color: var(--secondary-color);
+}
+
+/* تصميم المحتوى */
+.content {
+    margin-top: 60px;
+    padding: 20px;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.content h1 {
+    color: var(--primary-color);
+    text-align: center;
+    font-weight: 700; /* جعل الخط أعرض */
+}
+
+/* تصميم الصفحة الأولى */
+.split-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    margin-top: 40px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.split-container .text-section, .split-container .image-section {
+    flex: 1;
+    min-width: 300px;
+    max-width: 45%; /* لجعل الصفحة متناظرة */
+}
+
+.split-container .text-section {
+    padding: 10px;
+    text-align: right;
+}
+
+.split-container .image-section img {
+    width: 100%;
+    max-width: 500px; /* توسيع مساحة الصور */
+    height: auto;
+    border-radius: 10px;
+}
+form p {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    direction: rtl;
+}
+
+form p label {
+    font-weight: 700;
+    color: var(--primary-color);
+    direction: rtl;
+}
+
+form p input, form p select {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    font-family: 'Cairo', sans-serif;
+    direction: rtl;
+}
+
+form button {
+    padding: 10px;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    font-family: 'Cairo', sans-serif;
+    font-weight: 700;
+}
+
+form button:hover {
+    background-color: var(--secondary-color);
+}
+
+
+
+.custom-form {
+
+    display: flex;
+    flex-direction: column;
+    gap: 0px; /* زيادة المسافة بين الحقول */
+    margin-top: 50px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 20px; /* إضافة حشوة داخلية للنموذج */
+    background: #f9f9f9; /* لون خلفية فاتح */
+    border-radius: 12px; /* زيادة نصف قطر الحدود */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* إضافة ظل للنموذج */
+    direction: rtl;
+}
+
+.custom-form p {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+    direction: rtl;
+}
+
+.custom-form p label {
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: 0px; /* زيادة المسافة بين العنوان والحقل */
+    font-size: 14px; /* تصغير حجم الخط قليلاً */
+    text-transform: uppercase; /* تحويل النص إلى أحرف كبيرة */
+    letter-spacing: 0.5px; /* زيادة المسافة بين الحروف */
+    direction: rtl;
+}
+
+.custom-form p input, .custom-form p select {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px; /* زيادة نصف قطر الحدود */
+    font-size: 16px;
+    font-family: 'Cairo', sans-serif;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* إضافة ظل */
+    transition: box-shadow 0.3s ease; /* إضافة تأثير عند التركيز */
+    direction: rtl;
+}
+.custom-form p input:focus, .custom-form p select:focus {
+    border-color: var(--primary-color); /* تغيير لون الحدود عند التركيز */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2); /* زيادة الظل عند التركيز */
+    outline: none; /* إزالة الحدود الافتراضية للمتصفح */
+    direction: rtl;}
+
+.custom-form button {
+    padding: 12px 20px; /* زيادة الحشوة */
+    background: linear-gradient(45deg, var(--primary-color), var(--secondary-color)); /* تدرج لوني */
+    color: white;
+    border: none;
+    border-radius: 8px; /* زيادة نصف قطر الحدود */
+    cursor: pointer;
+    font-size: 16px;
+    font-family: 'Cairo', sans-serif;
+    font-weight: 700;
+    transition: background 0.3s ease, transform 0.2s ease; /* إضافة تأثيرات */
+
+}
+.custom-form button:hover {
+    background: linear-gradient(45deg, var(--secondary-color), var(--primary-color)); /* عكس التدرج */
+    transform: translateY(-2px); /* تحريك الزر لأعلى قليلاً */
+}
+
+.custom-form button:active {
+    transform: translateY(0); /* إعادة الزر لوضعه الطبيعي عند الضغط */
+}
+
+
+.custom-form p input[type="radio"],
+.custom-form p input[type="checkbox"] {
+    margin-right: 10px; /* زيادة المسافة بين الحقل والنص */
+    direction: rtl;}
+
+.custom-form p input[type="radio"] + label,
+.custom-form p input[type="checkbox"] + label {
+    font-weight: 500; /* تقليل سماكة الخط */
+    color: #555; /* تغيير لون النص */
+}
+
+.custom-form p input:hover, .custom-form p select:hover {
+    border-color: var(--primary-color); /* تغيير لون الحدود عند التحويم */
+}
+

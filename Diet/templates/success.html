@@ -1,0 +1,158 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %} HOME {% endblock %}
+{% block content %}
+<style>
+    /* الألوان الأساسية */
+    :root {
+        --primary-color: #4CAF50;
+        --secondary-color: #45a049;
+        --background-color: #f4f4f4;
+        --text-color: #333;
+    }
+
+    /* تصميم عام */
+    body {
+        font-family: 'Cairo', sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: var(--background-color);
+        color: var(--text-color);
+    }
+
+    /* Navbar */
+    .navbar {
+        background-color: var(--primary-color);
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 10px 20px;
+        direction: rtl;
+    }
+
+    .navbar .logo img {
+        height: 50px;
+    }
+
+    .navbar .nav-links {
+        display: flex;
+        gap: 20px;
+    }
+
+    .navbar a {
+        color: white;
+        text-decoration: none;
+        font-weight: 700;
+        padding: 10px 15px;
+    }
+
+    .navbar a:hover {
+        background-color: var(--secondary-color);
+        border-radius: 5px;
+    }
+
+    /* المحتوى */
+    .content {
+        margin-top: 80px;
+        padding: 20px;
+        max-width: 1200px;
+        margin-left: auto;
+        margin-right: auto;
+        direction: rtl; /* جعل النصوص تظهر من اليمين لليسار */
+
+    }
+
+    .content h1 {
+        color: var(--primary-color);
+        text-align: center;
+        font-weight: 700;
+    }
+
+    .day {
+        background: white;
+        padding: 20px;
+        margin-bottom: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .notes {
+        background:#d9f5e4;
+        padding: 10px;
+        border-radius: 5px;
+        font-weight: bold;
+        direction: rtl;
+    }
+
+    /* تخطيط الوجبات */
+    .meals-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(360px, 1fr)); /* يجعل العناصر تتكيف */
+        gap: 20px; /* مسافة بين العناصر */
+        margin-top: 30px;
+        direction: rtl; /* جعل عرض العناصر من اليمين لليسار */
+
+    }
+    
+    .meal {
+        background-color: #fff;
+        padding: 15px;
+        border-radius: 10px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        font-weight: 700;
+        font-size: 16px;
+        color: var(--primary-color);
+        transition: transform 0.3s ease;
+        direction: rtl; 
+    }
+    
+    .meal:hover {
+        transform: scale(1.05); /* تكبير العنصر عند التحويم */
+    }
+    h2{direction: rtl; }
+</style>
+
+<h2>خطة غذئية</h2>
+{% for day_data in plan %}
+    {% for day in day_data.day %}
+        <div class="day">
+          
+            <h2>اليوم {{ day.day_num }}</h2>
+
+            {% if day.meal %}
+            <div class="meals-container">
+                {% for meal in day.meal %}
+                <div class="meal">
+                    <h3>وجبة: {{ meal.name }}</h3>
+                    <p><strong>المكونات:</strong> {{ meal.ingredients }}</p>
+                    <p><strong>السعرات الحرارية:</strong> {{ meal.calorie }} kcal</p>
+                    <p><strong>البروتين:</strong> {{ meal.protein }} جرام</p>
+                    <p><strong>الكربوهيدرات:</strong> {{ meal.carb }} جرام</p>
+                    <p><strong>الدهون:</strong> {{ meal.fat }} جرام</p>
+            
+                    {% if meal.notes %}
+                    <p><strong>ملاحظات:</strong> {{ meal.notes }}</p>
+                    {% endif %}
+                </div>
+                {% endfor %}
+            </div>
+            {% else %}
+                <p>⚠️ لا توجد وجبات متاحة لهذا اليوم.</p>
+            {% endif %}
+
+            {% if day_data.notes %}
+            <div class="notes">
+                <p><strong>ملاحظات اليوم:</strong> {{ day_data.notes }}</p>
+            </div>
+            {% endif %}
+
+        </div>
+    {% endfor %}
+{% endfor %}
+
+{% endblock %}

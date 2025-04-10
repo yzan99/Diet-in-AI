@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %} HOME {% endblock %}
+{% block content %}
+
+<div class="content">
+    <h1>معلومات عن الأغذية الصحية</h1>
+
+    <!-- فوائد الفواكه -->
+    <div class="split-container">
+        <div class="text-section">
+            <h2>فوائد الفواكه</h2>
+            <p>الفواكه غنية بالفيتامينات والمعادن التي تعزز صحة الجسم. ينصح بتناولها يوميًا.</p>
+        </div>
+        <div class="image-section">
+            <img src="{% static 'images/Fruits.jpg' %}" alt="صورة فواكه">
+        </div>
+    </div>
+
+    <!-- فوائد الخضروات -->
+    <div class="split-container">
+        <div class="image-section">
+            <img src="{% static 'images/Vegetables.jpg' %}" alt="صورة خضروات">
+        </div>
+        <div class="text-section">
+            <h2>فوائد الخضروات</h2>
+            <p>الخضروات تحتوي على الألياف التي تساعد في تحسين الهضم وتقليل خطر الأمراض.</p>
+        </div>
+    </div>
+
+    <!-- فوائد اللحوم -->
+    <div class="split-container">
+        <div class="text-section">
+            <h2>فوائد اللحوم</h2>
+            <p>اللحوم مصدر غني بالبروتين والحديد، مما يساعد في بناء العضلات وتحسين صحة الدم.</p>
+        </div>
+        <div class="image-section">
+            <img src="{% static 'images/Meat.jpg' %}" alt="صورة لحوم">
+        </div>
+    </div>
+
+    <!-- فوائد البهارات -->
+    <div class="split-container">
+        <div class="image-section">
+            <img src="{% static 'images/Spices.jpg' %}" alt="صورة بهارات">
+        </div>
+        <div class="text-section">
+            <h2>فوائد البهارات</h2>
+            <p>البهارات تحتوي على مضادات الأكسدة التي تعزز المناعة وتحسن صحة الجهاز الهضمي.</p>
+        </div>
+    </div>
+
+    <!-- فوائد الحبوب -->
+    <div class="split-container">
+        <div class="text-section">
+            <h2>فوائد الحبوب</h2>
+            <p>الحبوب الكاملة غنية بالألياف وتساعد في تحسين صحة القلب وتنظيم مستويات السكر في الدم.</p>
+        </div>
+        <div class="image-section">
+            <img src="{% static 'images/legumes.jpg' %}" alt="صورة حبوب">
+        </div>
+    </div>
+</div>
+
+{% endblock %}

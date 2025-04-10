@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %} HOME {% endblock %}
+{% block content %}
+<form method="post"  class="custom-form">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">إرسال</button>
+</form>
+{% endblock %}
